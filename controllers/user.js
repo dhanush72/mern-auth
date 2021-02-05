@@ -70,8 +70,8 @@ exports.login = async (req, res) => {
       return res.status(400).json({ error: "please enter all fileds" });
     }
 
+    //* check user in db
     const existingUser = await User.findOne({ email });
-
     if (!existingUser) {
       return res.status(401).json({ error: "wrong email or password" });
     }
